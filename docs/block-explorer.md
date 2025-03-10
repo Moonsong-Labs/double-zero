@@ -13,7 +13,7 @@
 This repository is a monorepo consisting of 6 packages:
 
 - [Worker](./packages/worker) - an indexer service for [ZKsync Era](https://zksync.io) compatible chains. The purpose of
-  the service is to read blockchain data in real time, transform it and fill in it's database with the data in a way
+  the service is to read blockchain data in real time, transform it and fill in its database with the data in a way
   that makes it easy to be queried by the [API](./packages/api) service.
 - [Data Fetcher](./packages/data-fetcher) - a service that exposes and implements an HTTP endpoint to retrieve
   aggregated data for a certain block / range of blocks from the blockchain. This endpoint is called by
@@ -31,7 +31,7 @@ This repository is a monorepo consisting of 6 packages:
 
 ## 🏛 Architecture
 
-The following diagram illustrates how are the block explorer components connected:
+The following diagram illustrates how the block explorer components are connected:
 
 ```mermaid
 flowchart
@@ -186,7 +186,7 @@ double zero setup against the specified environment.
 
 ## ⛓️ Connection to your Hyperchain
 
-To get block-explorer connected to your ZK Stack Hyperchain you need to set up all the the necessary environment and
+To get block-explorer connected to your ZK Stack Hyperchain you need to set up all the necessary environment and
 configuration files with your Hyperchain settings. You can use a script to build them.
 See [Setting up env variables](#%EF%B8%8F-setting-up-env-variables).
 
