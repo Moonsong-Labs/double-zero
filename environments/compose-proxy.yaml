@@ -16,6 +16,7 @@ services:
         VITE_PUBLISHED: ${APP_PUBLISHED}
         VITE_RPC_URL: ${APP_RPC_URL}
         VITE_BASE_TOKEN_ADDRESS: ${APP_BASE_TOKEN_ADDRESS}
+        VITE_VERIFICATION_API_URL: ${APP_VERIFICATION_API_URL}
     ports:
       - '3010:3010'
     depends_on:

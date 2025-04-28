@@ -74,7 +74,7 @@
         </div>
       </div>
 
-      <div class="mt-8 w-full" v-if="allStepsCompleted">
+      <div class="mt-8 w-full" v-if="anyStepCompleted">
         <button
           class="rounded-md bg-red-600 text-white px-4 py-2 hover:bg-red-700 transition-colors h-10 flex items-center justify-center w-32 mx-auto"
           @click="logout"
@@ -156,7 +156,9 @@ const steps = ref([
       await login();
       steps.value[2].isActive = true;
     },
-    completed: computed(() => !!context.user.value?.loggedIn),
+    completed: computed(
+      () => !!address.value && !!context.user.value?.loggedIn,
+    ),
     pending: computed(() => isLoginPending.value),
     isActive: false,
   },
@@ -165,14 +167,22 @@ const steps = ref([
     title: 'Connect to Private Network',
     subtitle: 'Generate token for private network and connect',
     action: async () => {
-      await connectToPrivateNetwork();
+      await updateRpcToken();
+      steps.value[2].isActive = false;
     },
-    completed: computed(() => !!rpcToken.value),
+    completed: computed(
+      () =>
+        !!address.value &&
+        !!context.user.value.loggedIn &&
+        !!rpcToken.value &&
+        !!rpcUrl.value,
+    ),
     pending: ref(false),
     isActive: false,
   },
 ]);
 
+// Sets the first incomplete step as active
 watchEffect(() => {
   steps.value.forEach((step) => (step.isActive = false));
 
@@ -182,10 +192,6 @@ watchEffect(() => {
   }
 });
 
-async function connectToPrivateNetwork() {
-  return updateRpcToken();
-}
-
 async function addNetworkToMetamask() {
   if (!rpcUrl.value) {
     return;
@@ -193,12 +199,12 @@ async function addNetworkToMetamask() {
   await addNetwork(rpcUrl.value);
 }
 
-const allStepsCompleted = computed(() =>
-  steps.value.every((step) => step.completed),
+const anyStepCompleted = computed(() =>
+  steps.value.some((step) => step.completed),
 );
 
 async function logout() {
-  disconnect();
+  await disconnect();
   rpcToken.value = null;
   await loginLogout();
 }

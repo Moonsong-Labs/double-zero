@@ -41,6 +41,11 @@ contracts:
           type: public
         write:
           type: closed
+      - signature: function allowedToAddLiquidity() returns (bool)
+        read:
+          type: public
+        write:
+          type: public
   # DAI
   - address: "0x000139E9bc2C5079A8CE3aA87D3b5E8b50A85797"
     methods:

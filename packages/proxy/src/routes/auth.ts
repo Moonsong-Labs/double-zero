@@ -9,6 +9,7 @@ import { getUserOrThrow } from '../services/user.js';
 import { env } from '../env.js';
 import { addressSchema } from '../utils/schemas.js';
 import { z } from 'zod';
+import { pipePostRequest } from '../services/block-explorer.js';
 
 export default function authRoutes(app: FastifyApp) {
   app.get('/nonce', async (req, reply) => {
@@ -49,15 +50,14 @@ export default function authRoutes(app: FastifyApp) {
 
   app.get('/token', async (req, reply) => {
     const user = getUserOrThrow(req);
-    const response = await fetch(`${env.USER_TOKEN_URL}`, {
-      method: 'POST',
-      body: JSON.stringify({
+    return pipePostRequest(
+      env.USER_TOKEN_URL,
+      {
         address: user,
         secret: app.conf.createTokenSecret,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    return reply.send(response.body);
+      },
+      reply,
+    );
   });
 
   app.get('/user', async (req, reply) => {

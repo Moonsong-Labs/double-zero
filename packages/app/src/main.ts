@@ -49,7 +49,7 @@ const { initialize: initializeWallet } = useWallet({
     ...context.currentNetwork.value,
   })),
 });
-initializeWallet();
+await initializeWallet();
 
 if (runtimeConfig.sentryDSN?.length) {
   useSentry(

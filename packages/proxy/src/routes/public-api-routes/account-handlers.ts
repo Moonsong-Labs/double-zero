@@ -7,6 +7,7 @@ import { buildUrl } from '../../utils/url.js';
 import { HttpError } from '../../utils/http-error.js';
 import { publicTxSchema, withAddressSchema } from './schemas.js';
 import { paginate, passIfAddressIsCurrentUser } from './generic-handlers.js';
+import { addPipedHeader } from '../../services/block-explorer.js';
 
 const withManyAddressesSchema = z.object({
   address: z
@@ -38,6 +39,8 @@ const txlist: Handler = async (app, req, reply) => {
   const response = await fetch(url);
 
   if (user === address) {
+    addPipedHeader('content-type', reply, response);
+    addPipedHeader('content-length', reply, response);
     return reply.send(response.body);
   }
 

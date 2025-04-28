@@ -46,6 +46,7 @@ export type NetworkConfiguration = {
   l2ChainId: number;
   explorerUrl: string;
   chainName: string;
+  apiUrl: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -222,9 +223,15 @@ export default (
     }
   };
 
-  const disconnect = () => {
+  const disconnect = async () => {
     state.address = null;
     isAuthenticated.value = false;
+
+    const ethereumProvider = await getEthereumProvider();
+    await ethereumProvider!.request({
+      method: 'wallet_revokePermissions',
+      params: [{ eth_accounts: {} }],
+    });
   };
 
   const getL1Signer = async () => {

@@ -84,7 +84,7 @@ export default (): Context => {
 
   function getL2Provider() {
     if (!l2Provider) {
-      l2Provider = new Provider(rpcUrl.value ?? '');
+      l2Provider = new Provider('https://sepolia.era.zksync.dev'); //FIXME
     }
     return l2Provider;
   }

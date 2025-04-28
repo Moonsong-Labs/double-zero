@@ -6,9 +6,10 @@ import { $fetch } from 'ohmyfetch';
 import { SiweMessage } from 'siwe';
 
 import defaultLogger from './../utils/logger';
+import useWallet from './useWallet';
 
-import type { NetworkConfig } from '../configs';
 import type { UserContext } from './useContext';
+import type { NetworkConfiguration } from './useWallet';
 import type { BaseProvider } from '@metamask/providers';
 import type { Provider } from 'zksync-ethers';
 
@@ -29,7 +30,7 @@ const state = reactive<LoginState>({
 export default (
   context: {
     user: Ref<UserContext>;
-    currentNetwork: ComputedRef<NetworkConfig>;
+    currentNetwork: ComputedRef<NetworkConfiguration>;
     getL2Provider: () => Provider;
   },
   _logger = defaultLogger,
@@ -48,8 +49,13 @@ export default (
           credentials: 'include',
         },
       );
-      if (response.address) {
+      const { address: connectedAddress } = useWallet(context);
+      if (
+        connectedAddress.value?.toLowerCase() === response.address.toLowerCase()
+      ) {
         context.user.value = { address: response.address, loggedIn: true };
+      } else {
+        context.user.value = { loggedIn: false };
       }
     } catch {
       context.user.value = { loggedIn: false };

@@ -27,7 +27,7 @@ export async function pipePostRequest(
   return reply.send(response.body);
 }
 
-function addPipedHeader(
+export function addPipedHeader(
   header: HttpHeader,
   reply: FastifyReply,
   response: Response,
