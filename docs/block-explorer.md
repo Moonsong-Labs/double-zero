@@ -1,11 +1,11 @@
-# Double Zero Block Explorer
+# Private Validium Block Explorer
 
-**A privacy-focused, access-controlled blockchain browser for the Double Zero implementation**
+**A privacy-focused, access-controlled blockchain browser for the Private Validium implementation**
 
 ## 📌 Overview
 
 > [!NOTE]
-> **Double Zero** Block Explorer is a customized version of
+> **Private Validium** Block Explorer is a customized version of
 > the [ZKsync Era Block Explorer](https://github.com/matter-labs/block-explorer) that introduces a layer of privacy and
 > access control. By implementing user **authentication and permission-based data restrictions**, it ensures that users
 > can access blockchain data according to their assigned permissions.
@@ -173,7 +173,7 @@ docker compose up
 
 It will run local Ethereum node, ZkSync Era, Postgres DB and all Block Explorer services.
 
-Another option is to run only the double zero services hitting external endpoints
+Another option is to run only the private validium services hitting external endpoints
 These can be done by upgrading the content `proxy.env` with the desired rpc and explorer
 urls. Then running:
 
@@ -182,7 +182,7 @@ docker compose -f docker-compose-00.yaml --env-file=proxy.env up
 ```
 
 This is going to spin only the services needed to make a functional
-double zero setup against the specified environment.
+private validium setup against the specified environment.
 
 ## ⛓️ Connection to your Hyperchain
 

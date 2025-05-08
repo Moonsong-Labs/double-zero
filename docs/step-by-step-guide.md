@@ -1,9 +1,9 @@
 # Step-by-step full guide
 
-Double Zero is a framework that provides privacy and access control for ZKsync-compatible chains.
+Private Validium is a framework that provides privacy and access control for ZKsync-compatible chains.
 
-This guide walks you through the complete process of setting up a local Double Zero environment, which includes a
-private validium chain and a dapp built on the Double Zero framework.
+This guide walks you through the complete process of setting up a local Private Validium environment, which includes a
+private validium chain and a dapp built on the Private Validium framework.
 
 ## 1 - Deploy your validium chain
 
@@ -59,7 +59,7 @@ Ensure to have to following ports free:
 - 8545
 
 Now we need to create the ecosystem. This command is going to promp you with a wizzard to do the initial configuration
-of the network. Double zero can work with any configuration, but the framework is meant to be used with a validium
+of the network. Private Validium can work with any configuration, but the framework is meant to be used with a validium
 chain.
 
 Also, it’s good to avoid using the default chain id. For this example we are going to use `54678` .
@@ -125,10 +125,10 @@ control:
 
 After this is done you are going to have funds ready to use in your local validium chain.
 
-## 2. Double Zero
+## 2. Private Validium
 
-Double Zero adds authentication and authorization on top of the newly created validium chain. All the services are
-written in nodejs and they are meant to be easy to run and configure. Let’s go step by step.
+Private Validium adds authentication and authorization on top of the newly created validium chain. All the services are
+written in nodejs and they are meant to be easy to run and configure. Let's go step by step.
 
 ### 2.1 - Clone the repo
 
@@ -142,7 +142,7 @@ cd double-zero
 
 ### 2.2 Config
 
-At this stage we need to link the private chain with double zero. We are going to run the double zero services inside a
+At this stage we need to link the private chain with Private Validium. We are going to run the Private Validium services inside a
 docker a network. But they need to interact with our validium chain that is running in the host machine. The easiest way
 to make this work is by connecting the validium chain using your local ip. You can use this commands to get your local
 ip:
@@ -184,7 +184,7 @@ APP_HOSTNAMES=localhost
 APP_ICON=/images/icons/zksync-arrows.svg
 # Here you need to set your chain id
 APP_L2_CHAIN_ID=54678 # <-- your chain id.
-APP_L2_NETWORK_NAME=Double Zero Local
+APP_L2_NETWORK_NAME=Private Validium Local
 APP_MAINTENANCE=false
 APP_NAME=local
 APP_PUBLISHED=true
@@ -192,7 +192,7 @@ APP_RPC_URL=http://localhost:4041
 APP_BASE_TOKEN_ADDRESS=0x000000000000000000000000000000000000800A
 ```
 
-Once the configuration is in place you can run the double zero services.
+Once the configuration is in place you can run the Private Validium services.
 
 ### 2.3 - Launch
 
@@ -200,7 +200,7 @@ Once the configuration is in place you can run the double zero services.
 ./environments/launch-hyperchain-env.sh
 ```
 
-This is going to run all the services of double zero using docker. At this stage you can check that the explorer is
+This is going to run all the services of Private Validium using docker. At this stage you can check that the explorer is
 working going with your browser to [http://localhost:3010](http://localhost:3010)
 
 ![img/explorer.png](./img/explorer.png)
@@ -255,9 +255,9 @@ After running this script:
 - The 3 addresses have received some tokens to test everything.
 - The deployer was registered as a VIP user and PREMIUM_USER_ADDRESS as a premium userr.
 
-### 3.3 - Configure double zero permissions
+### 3.3 - Configure Private Validium permissions
 
-Let’s go back to the double zero repo. We have to edit this file: `envieronments/compose-hyperchain-permissions.yaml`
+Let's go back to the Private Validium repo. We have to edit this file: `envieronments/compose-hyperchain-permissions.yaml`
 
 This files defined the access for permissions for each contract. This is what we are going to do
 
@@ -281,7 +281,7 @@ contracts:
       # ...
 ```
 
-Now you can run all the double zero services again, this time we are going to leave them up:
+Now you can run all the Private Validium services again, this time we are going to leave them up:
 
 ```bash
 ./environments/launch-hyperchain-env.sh
@@ -324,4 +324,4 @@ Now, you can go to [localhost:3000](http://localhost:3000) to see your dapp runn
 
 ![zerozeroswap.png](./img/zerozeroswap.png)
 
-You can connect your metamask wallet to the double zero rpc through the explorer. And then you can use the app.
+You can connect your metamask wallet to the Private Validium rpc through the explorer. And then you can use the app.

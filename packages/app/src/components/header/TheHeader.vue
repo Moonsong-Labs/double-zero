@@ -9,7 +9,7 @@
           >
             <span class="sr-only">ZKsync</span>
             <zk-sync-era />
-            <span class="text-black text-xl font-normal">Double Zero</span>
+            <span class="text-black text-xl font-normal">Private Validium</span>
           </router-link>
         </div>
         <div class="burger-button-container">

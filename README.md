@@ -1,9 +1,9 @@
 <h3 align="center"> ⛓️ 🔐 👀</h3>
-<h1 align="center">Double Zero </h1>
+<h1 align="center">Private Validium </h1>
 
 <p align="center">A private blockchain solution with access control features that leverage the ZKsync Elastic Chain ecosystem's development tools and interoperability.</p>
 
-![Double-Zero](architecture.png)*High-level architecture design for a “Double-Zero” implementation using a Validium
+![Private Validium](architecture.png)*High-level architecture design for a “Double-Zero” implementation using a Validium
 Chain with access control features and scoped data access.*
 
 > [!NOTE]
@@ -24,9 +24,9 @@ public blockchain integration.
 > **This trade-off creates a barrier** for organizations that need a **hybrid solution** combining the benefits of both
 > private and controlled systems in the public blockchain ecosystem.
 
-## 💡 The Double Zero Framework
+## 💡 The Private Validium Framework
 
-**Double Zero** empowers organizations to operate within private blockchain environments while seamlessly connecting to
+**Private Validium** empowers organizations to operate within private blockchain environments while seamlessly connecting to
 public networks. This is achieved through:
 
 - **Validium Chains**: Ensures confidentiality by keeping sensitive data off-chain while leveraging zero-knowledge
@@ -62,7 +62,7 @@ tools and decentralized applications.
 
 ## ⚙️ Components
 
-Double Zero consists of three main components. Below, we'll cover the rationale behind these choices and their
+Private Validium consists of three main components. Below, we'll cover the rationale behind these choices and their
 implications:
 
 1. [**Validium Chain**](#️-why-validium)
@@ -71,7 +71,7 @@ implications:
 
 ## ⛓️ Why Validium?
 
-Validium provides the ideal foundation for Double Zero by addressing key enterprise needs: security, scalability, and
+Validium provides the ideal foundation for Private Validium by addressing key enterprise needs: security, scalability, and
 interoperability. Here's why it stands out:
 
 ### 1. **Privacy**
@@ -124,26 +124,26 @@ The proxy layer enhances security, streamlines access control, and improves usab
 
 ### Key Benefits of the Proxy
 
-1. **Enforcing Zero-Access Principles**: Acts as a gatekeeper, ensuring only authenticated and authorized users can interact with the Validium chain, in line with Double Zero's access control philosophy.
+1. **Enforcing Zero-Access Principles**: Acts as a gatekeeper, ensuring only authenticated and authorized users can interact with the Validium chain, in line with Private Validium's access control philosophy.
 2. **Enhanced Security**: Protects the Validium RPC interface by filtering and validating all incoming requests. This minimizes exposure to potential security risks, such as unauthorized access or malicious actions.
 3. **Streamlined Authentication and Authorization**: Integrates robust mechanisms to verify user identities and permissions before granting access, ensuring strict adherence to organizational policies.
 
 ### YAML-Based Permission Configuration
 
-Double Zero is a **flexible framework**, allowing permission management to be tailored to specific organizational needs. The example implementation below showcases one approach, but it can be easily modified to accommodate unique workflows or compliance requirements.
+Private Validium is a **flexible framework**, allowing permission management to be tailored to specific organizational needs. The example implementation below showcases one approach, but it can be easily modified to accommodate unique workflows or compliance requirements.
 
 Permissions are defined in a `YAML file` to simplify configuration and enhance accessibility, especially for web2-oriented teams:
 
 - **Groups**: Logical collections of users or addresses sharing the same permissions.
 - **Permissions**: Specific contracts or methods that a group is allowed to access.
 
-This flexibility ensures Double Zero can adapt to various industries and use cases, from financial institutions to decentralized platforms.
+This flexibility ensures Private Validium can adapt to various industries and use cases, from financial institutions to decentralized platforms.
 
 You can explore an example configuration file in [example-permissions.yaml](./compose-proxy-permissions.yaml), demonstrating how groups and permissions can be structured in practice.
 
 ## 👀 Private Block Explorer
 
-**Double Zero** Block Explorer is a customized version of
+**Private Validium** Block Explorer is a customized version of
 the [ZKsync Era Block Explorer](https://github.com/matter-labs/block-explorer) that introduces a layer of privacy and
 access control. This tailored block explorer provides a secure, user-specific view of the blockchain.
 
@@ -155,11 +155,11 @@ blockchain data according to their assigned permissions.
 
 ## 🎯 **Conclusion**
 
-Double Zero uniquely combines ***privacy, scalability, and integration***:
+Private Validium uniquely combines ***privacy, scalability, and integration***:
 
 1. **Confidentiality**: Keeps sensitive data secure through advanced off-chain storage.
 2. **Integration**: Bridges to public chains like Ethereum, providing access to liquidity, decentralized applications and tools.
 3. **Efficiency**: High throughput and reduced costs for enterprise-grade applications.
 4. **Ease of Adoption**: Intuitive deployment and familiar tools lower technical barriers.
 
-By leveraging Validium technology, zero-knowledge proofs, and tailored access control, Double Zero enables organizations to harness blockchain innovation without compromising control or security.
+By leveraging Validium technology, zero-knowledge proofs, and tailored access control, Private Validium enables organizations to harness blockchain innovation without compromising control or security.

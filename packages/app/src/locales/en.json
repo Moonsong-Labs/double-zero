@@ -316,7 +316,7 @@
         "subtitle": "zkRollups significantly cheaper than L1 or Optimistic Rollups"
     },
     "blockExplorer": {
-        "title": "Double Zero Explorer.",
+        "title": "Private Validium Explorer.",
         "subtitle": "Private, Secure and Fast.",
         "latestBlocks": "Latest Blocks",
         "latestTransactions": "Latest Transactions",
@@ -744,7 +744,7 @@
     },
     "login": {
         "title": "Login",
-        "subtitle": "Connect your wallet to access the Double Zero Block Explorer",
+        "subtitle": "Connect your wallet to access the Private Validium Block Explorer",
         "addNetworkToMetamask": "Add Network to Metamask",
         "logout": "Log Out"
     }
