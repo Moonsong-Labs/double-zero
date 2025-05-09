@@ -3,7 +3,7 @@
 
 <p align="center">A private blockchain solution with access control features that leverage the ZKsync Elastic Chain ecosystem's development tools and interoperability.</p>
 
-![Private Validium](architecture.png)*High-level architecture design for a “Double-Zero” implementation using a Validium
+![Private Validium](architecture.png)*High-level architecture design for a “Private Validium” implementation using a Validium
 Chain with access control features and scoped data access.*
 
 > [!NOTE]
